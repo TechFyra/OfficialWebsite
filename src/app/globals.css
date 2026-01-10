@@ -8,8 +8,34 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  
+  /* Ilio Brand Colors */
+  --color-navy-900: #001f3f;
+  --color-navy-800: #002d5c;
+  --color-indigo-900: #1e1b4b;
+  --color-purple-900: #581c87;
+  --color-pink-900: #9d174d;
+  --color-indigo-400: #818cf8;
+  --color-indigo-500: #6366f1;
+  --color-purple-400: #a855f7;
+  --color-purple-500: #9333ea;
+  --color-pink-400: #f472b6;
+  --color-pink-500: #ec4899;
+  --color-blue-400: #60a5fa;
+  --color-blue-300: #93c5fd;
+  --color-cyan-400: #22d3ee;
+  --color-purple-300: #d8b4fe;
+  --color-yellow-400: #facc15;
+  --color-green-400: #4ade80;
+  --color-gray-900: #111827;
+  --color-gray-800: #1f2937;
+  --color-gray-700: #374151;
+  --color-gray-500: #6b7280;
+  --color-gray-400: #9ca3af;
+  --color-gray-200: #e5e7eb;
+  --color-gray-100: #f3f4f6;
+  --color-white-10: rgba(255,255,255,0.1);
+  --color-white-20: rgba(255,255,255,0.2);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -19,8 +45,25 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
 }

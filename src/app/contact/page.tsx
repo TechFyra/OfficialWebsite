@@ -1,10 +1,8 @@
 "use client";
 import Navbar from "@/components/navbar";
-import Hero from "@/components/ui/hero";
-import ServicesCard from "@/components/ui/services-card";
 import { useState } from "react";
 
-export default function Home() {
+export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
     lastName: "",
@@ -28,58 +26,17 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <Hero />
       
-      <section id="services" className="py-40 px-8 bg-black">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-32">
-            <h2 className="text-6xl md:text-7xl font-black text-white mb-12">Let us help you</h2>
-            <a href="#contact">
-              <button className="bg-gradient-to-r from-[--color-purple-400] to-[--color-pink-400] text-white px-12 py-6 rounded-full font-bold text-2xl hover:scale-105 hover:shadow-2xl transition-all shadow-xl">
-                Contact
-              </button>
-            </a>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-16">
-            <ServicesCard 
-              icon="💬" 
-              title="Big Data Consulting" 
-              description="Sometimes you need to look far to see close. Our experts help you make sense of big data." 
-            />
-            <ServicesCard 
-              icon="⚙️" 
-              title="Data Infrastructure & Engineering" 
-              description="It's not enough to have data, you also need to have the right tools to manage it day-to-day." 
-            />
-            <ServicesCard 
-              icon="📊" 
-              title="Data Analytics" 
-              description="From in-house training to tailored service packages, we offer a wide range of data analysis services." 
-            />
-            <ServicesCard 
-              icon="📈" 
-              title="Data Visualization" 
-              description="In order to make informed decisions, you need to understand your data. We can visualize yours for you." 
-            />
-          </div>
-        </div>
-      </section>
-      
-      {/* Contact Section */}
-      <section id="contact" className="min-h-screen bg-black pt-32 pb-24 px-8 relative overflow-hidden">
-        {/* Subtle gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/10 via-transparent to-pink-900/10 pointer-events-none" />
-        
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-20 items-start relative z-10">
+      <section className="min-h-screen bg-gradient-to-br from-[#0000CC] via-[#0000AA] to-[#000088] pt-32 pb-24 px-8">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-20 items-start">
           {/* Left Side - Form */}
           <div className="max-w-2xl">
-            <h2 className="text-7xl font-black mb-8 leading-tight">
+            <h1 className="text-7xl font-black mb-8 leading-tight">
               <span className="text-white">Contact </span>
               <span className="bg-gradient-to-r from-[--color-pink-400] to-[--color-purple-400] bg-clip-text text-transparent">us</span>
-            </h2>
+            </h1>
             
-            <p className="text-xl text-gray-400 mb-12 leading-relaxed">
+            <p className="text-xl text-white/80 mb-12 leading-relaxed">
               Whether you have a request, a query, or want to work with us, use the form below to get in touch with our team.
             </p>
 
@@ -95,7 +52,7 @@ export default function Home() {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="Your name"
-                  className="w-full px-6 py-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-[--color-pink-400] focus:border-transparent hover:border-white/20 transition-all"
+                  className="w-full px-6 py-4 bg-white/20 backdrop-blur-sm border border-white/30 rounded-xl text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-[--color-pink-400] transition-all"
                   required
                 />
               </div>
@@ -111,7 +68,7 @@ export default function Home() {
                   value={formData.lastName}
                   onChange={handleChange}
                   placeholder="Your last name"
-                  className="w-full px-6 py-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-[--color-pink-400] focus:border-transparent hover:border-white/20 transition-all"
+                  className="w-full px-6 py-4 bg-white/20 backdrop-blur-sm border border-white/30 rounded-xl text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-[--color-pink-400] transition-all"
                   required
                 />
               </div>
@@ -127,7 +84,7 @@ export default function Home() {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="Your email address"
-                  className="w-full px-6 py-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-[--color-pink-400] focus:border-transparent hover:border-white/20 transition-all"
+                  className="w-full px-6 py-4 bg-white/20 backdrop-blur-sm border border-white/30 rounded-xl text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-[--color-pink-400] transition-all"
                   required
                 />
               </div>
@@ -143,14 +100,14 @@ export default function Home() {
                   onChange={handleChange}
                   placeholder="Enter your message"
                   rows={6}
-                  className="w-full px-6 py-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-[--color-pink-400] focus:border-transparent hover:border-white/20 transition-all resize-none"
+                  className="w-full px-6 py-4 bg-white/20 backdrop-blur-sm border border-white/30 rounded-xl text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-[--color-pink-400] transition-all resize-none"
                   required
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-[--color-pink-400] to-[--color-purple-400] text-white px-12 py-6 rounded-full font-bold text-2xl hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/50 transition-all shadow-xl"
+                className="w-full bg-gradient-to-r from-[--color-pink-400] to-[--color-purple-400] text-white px-12 py-6 rounded-full font-bold text-2xl hover:scale-105 transition-all shadow-2xl"
               >
                 Send Message
               </button>
@@ -165,7 +122,7 @@ export default function Home() {
                 <div 
                   className="absolute inset-0 rounded-full"
                   style={{
-                    background: 'linear-gradient(135deg, rgba(255,105,180,0.6) 0%, rgba(138,43,226,0.6) 25%, rgba(0,191,255,0.6) 50%, rgba(255,182,193,0.6) 75%, rgba(255,105,180,0.6) 100%)',
+                    background: 'linear-gradient(135deg, rgba(255,105,180,0.8) 0%, rgba(138,43,226,0.8) 25%, rgba(0,191,255,0.8) 50%, rgba(255,182,193,0.8) 75%, rgba(255,105,180,0.8) 100%)',
                     filter: 'blur(2px)',
                     transform: 'perspective(1000px) rotateY(25deg) rotateX(15deg)',
                   }}
@@ -173,7 +130,7 @@ export default function Home() {
               </div>
               
               {/* Inner glow */}
-              <div className="absolute w-80 h-80 bg-gradient-to-br from-pink-400 via-purple-400 to-blue-400 rounded-full opacity-20 blur-3xl animate-pulse" />
+              <div className="absolute w-80 h-80 bg-gradient-to-br from-pink-400 via-purple-400 to-blue-400 rounded-full opacity-30 blur-3xl animate-pulse" />
               
               {/* Metallic ring */}
               <div 
@@ -184,14 +141,14 @@ export default function Home() {
                   WebkitMaskComposite: 'xor',
                   maskComposite: 'exclude',
                   transform: 'perspective(1000px) rotateY(-35deg) rotateX(25deg)',
-                  boxShadow: '0 25px 50px -12px rgba(138,43,226,0.4), inset 0 2px 20px rgba(255,255,255,0.2)',
+                  boxShadow: '0 25px 50px -12px rgba(138,43,226,0.5), inset 0 2px 20px rgba(255,255,255,0.3)',
                 }}
               />
               
               {/* Accent particles */}
-              <div className="absolute top-20 right-20 w-4 h-4 bg-pink-400 rounded-full animate-bounce blur-sm opacity-60" />
-              <div className="absolute bottom-32 left-20 w-3 h-3 bg-purple-400 rounded-full animate-pulse blur-sm opacity-60" />
-              <div className="absolute top-1/3 left-10 w-2 h-2 bg-blue-400 rounded-full animate-ping opacity-60" />
+              <div className="absolute top-20 right-20 w-4 h-4 bg-pink-400 rounded-full animate-bounce blur-sm" />
+              <div className="absolute bottom-32 left-20 w-3 h-3 bg-purple-400 rounded-full animate-pulse blur-sm" />
+              <div className="absolute top-1/3 left-10 w-2 h-2 bg-blue-400 rounded-full animate-ping" />
             </div>
           </div>
         </div>
