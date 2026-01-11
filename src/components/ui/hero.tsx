@@ -3,23 +3,20 @@ export default function Hero() {
     <section className="min-h-screen bg-gradient-to-br from-[--color-indigo-900] via-[--color-purple-900] to-[--color-pink-900] flex flex-col justify-center items-center text-center px-8 pt-32 pb-20 relative overflow-hidden">
       <div className="max-w-6xl mx-auto z-10">
         <h1 className="text-7xl md:text-9xl font-black mb-12 leading-tight">
-          <span className="bg-gradient-to-r from-white via-[--color-blue-300] to-[--color-purple-300] bg-clip-text text-transparent block">
+          <span className="text-black block">
             Big data
           </span>
-          <span className="text-white block">for big</span>
-          <span className="text-8xl md:text-[11rem] bg-gradient-to-r from-[--color-pink-400] to-[--color-purple-400] bg-clip-text text-transparent">
+          <span className="text-black block">for big</span>
+          <span className="text-8xl md:text-[11rem] text-black">
             success
           </span>
         </h1>
         <p className="text-2xl text-[--color-gray-200] max-w-3xl mx-auto leading-relaxed mb-16">
           Unlock growth through data insights and real outcomes
         </p>
-        <div className="flex flex-col sm:flex-row gap-6 justify-center">
+        <div className="flex justify-center">
           <button className="bg-white text-[--color-indigo-900] px-16 py-8 rounded-full font-bold text-2xl hover:scale-105 transition-all shadow-2xl">
             Get Started
-          </button>
-          <button className="border-2 border-white text-white px-16 py-8 rounded-full font-bold text-2xl hover:bg-white hover:text-[--color-indigo-900] transition-all">
-            Learn More
           </button>
         </div>
       </div>
