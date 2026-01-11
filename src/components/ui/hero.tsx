@@ -1,3 +1,6 @@
+"use client";
+import Link from "next/link";
+
 export default function Hero() {
   return (
     <section className="min-h-screen bg-gradient-to-br from-[--color-indigo-900] via-[--color-purple-900] to-[--color-pink-900] flex flex-col justify-center items-center text-center px-8 pt-32 pb-20 relative overflow-hidden">
@@ -14,11 +17,11 @@ export default function Hero() {
         <p className="text-2xl text-[--color-gray-200] max-w-3xl mx-auto leading-relaxed mb-16">
           Unlock growth through data insights and real outcomes
         </p>
-        <div className="flex justify-center">
+        <Link href="/what-we-do">
           <button className="bg-white text-[--color-indigo-900] px-16 py-8 rounded-full font-bold text-2xl hover:scale-105 transition-all shadow-2xl">
             Get Started
           </button>
-        </div>
+        </Link>
       </div>
       
       <div className="absolute -bottom-40 left-20 w-80 h-80 bg-[--color-green-400] rounded-full blur-3xl opacity-20 animate-pulse"></div>

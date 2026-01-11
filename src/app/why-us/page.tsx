@@ -1,7 +1,11 @@
+"use client";
 import Navbar from "@/components/navbar";
 import ValueCard from "@/components/ui/value-card";
+import { useRouter } from "next/navigation";
 
 export default function WhyUs() {
+  const router = useRouter();
+
   return (
     <>
       <Navbar />
@@ -47,12 +51,23 @@ export default function WhyUs() {
         </div>
       </section>
       
-      <section className="py-40 px-8 bg-gradient-to-br from-indigo-50 to-purple-50 text-center">
+      <section className="py-40 px-8 bg-gradient-to-br from-purple-50 to-pink-50 text-center">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-6xl font-black text-gray-900 mb-12">Let's work together</h2>
-          <p className="text-2xl text-gray-600 mb-16">Transform your data into actionable insights</p>
-          <button className="bg-gradient-to-r from-[--color-indigo-600] to-[--color-purple-600] text-white px-20 py-8 rounded-full font-bold text-3xl hover:scale-105 hover:shadow-2xl transition-all shadow-xl">
-            Start Your Project
+          <h2 className="text-6xl font-black text-gray-900 mb-12">Ready to Get Started?</h2>
+          <p className="text-2xl text-gray-600 mb-16">Let's transform your data into actionable insights</p>
+          <button 
+            onClick={() => {
+              router.push('/');
+              setTimeout(() => {
+                const contactSection = document.getElementById('contact');
+                if (contactSection) {
+                  contactSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }, 300);
+            }}
+            className="bg-gradient-to-r from-pink-600 to-purple-600 text-white px-20 py-8 rounded-full font-bold text-3xl hover:scale-105 hover:shadow-2xl transition-all shadow-xl"
+          >
+            Contact Us Now
           </button>
         </div>
       </section>
