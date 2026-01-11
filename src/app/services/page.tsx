@@ -6,18 +6,18 @@ export default function Services() {
     <>
       <Navbar />
       
-      <section className="min-h-screen bg-gradient-to-br from-[--color-indigo-900] via-[--color-purple-900] to-[--color-pink-900] pt-32 pb-24 flex items-center">
+      <section className="min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 pt-32 pb-24 flex items-center">
         <div className="max-w-6xl mx-auto px-8 text-center">
-          <h1 className="text-7xl md:text-8xl font-black bg-gradient-to-r from-white via-[--color-cyan-400] to-[--color-blue-400] bg-clip-text text-transparent mb-16 leading-tight">
+          <h1 className="text-7xl md:text-8xl font-black bg-gradient-to-r from-gray-900 via-indigo-600 to-purple-600 bg-clip-text text-transparent mb-16 leading-tight">
             Our Services
           </h1>
-          <p className="text-3xl text-[--color-gray-200] max-w-4xl mx-auto leading-relaxed">
+          <p className="text-3xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
             Comprehensive data solutions tailored to your business needs
           </p>
         </div>
       </section>
       
-      <section className="py-40 px-8 bg-[--color-gray-100]">
+      <section className="py-40 px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-16 mb-24">
             <ServiceDetailCard 
@@ -51,11 +51,11 @@ export default function Services() {
         </div>
       </section>
       
-      <section className="py-40 px-8 bg-white text-center">
+      <section className="py-40 px-8 bg-gradient-to-br from-indigo-50 to-purple-50 text-center">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-6xl font-black text-[--color-navy-900] mb-12">Ready to get started?</h2>
-          <p className="text-2xl text-[--color-gray-700] mb-16">Let's discuss how we can help transform your business</p>
-          <button className="bg-gradient-to-r from-[--color-indigo-500] to-[--color-purple-500] text-white px-20 py-8 rounded-full font-bold text-3xl hover:scale-105 transition-all shadow-2xl">
+          <h2 className="text-6xl font-black text-gray-900 mb-12">Ready to get started?</h2>
+          <p className="text-2xl text-gray-600 mb-16">Let's discuss how we can help transform your business</p>
+          <button className="bg-gradient-to-r from-[--color-indigo-600] to-[--color-purple-600] text-white px-20 py-8 rounded-full font-bold text-3xl hover:scale-105 hover:shadow-2xl transition-all shadow-xl">
             Contact Us
           </button>
         </div>
