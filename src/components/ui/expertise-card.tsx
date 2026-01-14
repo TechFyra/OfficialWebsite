@@ -1,17 +1,58 @@
+import Image from "next/image";
+
 interface ExpertiseCardProps {
-  icon: string;
   title: string;
   description: string;
+  image: string;
+  className?: string;
 }
 
-export default function ExpertiseCard({ icon, title, description }: ExpertiseCardProps) {
+export default function ExpertiseCard({
+  title,
+  description,
+  image,
+}: ExpertiseCardProps) {
   return (
-    <div className="flex flex-col items-center p-16 bg-white border-2 border-gray-200 rounded-3xl text-center max-w-lg mx-auto group hover:scale-105 hover:border-indigo-300 transition-all duration-500 hover:shadow-2xl">
-      <div className="w-32 h-32 bg-gradient-to-r from-[--color-indigo-600] to-[--color-purple-600] rounded-3xl flex items-center justify-center mb-12 group-hover:rotate-6 transition-all duration-500 shadow-lg">
-        <span className="text-5xl">{icon}</span>
+    <div className="
+      relative
+      rounded-3xl
+      overflow-hidden
+      /* High-quality frosted glass look */
+      bg-white/40 
+      backdrop-blur-md
+      shadow-2xl
+      border border-white/20
+      /* INCREASED SIZE: larger padding and min-height */
+      p-12 
+      min-h-[400px] 
+      flex items-end /* Position text at bottom to let image shine */
+      group
+      transition-all duration-500 hover:scale-[1.02]
+    ">
+
+      {/* BACKGROUND IMAGE - Brightness & Visibility Fix */}
+      <div className="absolute inset-0">
+        <Image
+          src={image}
+          alt={title}
+          fill
+          /* Changed opacity from 30 to 80 or 100 for maximum visibility */
+          className="object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+        />
+        {/* Subtle overlay so text remains readable without washing out the image */}
+        <div className="absolute inset-0 bg-gradient-to-t from-white via-white/40 to-transparent" />
       </div>
-      <h3 className="text-3xl font-black text-gray-900 mb-8 group-hover:text-[--color-indigo-600] transition-all">{title}</h3>
-      <p className="text-gray-600 leading-relaxed text-lg group-hover:text-gray-700 transition-all">{description}</p>
+
+      {/* CONTENT */}
+      <div className="relative z-10 max-w-lg">
+        <h3 className="text-4xl font-extrabold text-gray-900 mb-6 tracking-tight">
+          {title}
+        </h3>
+        <p className="text-xl text-gray-800 font-medium leading-relaxed">
+          {description}
+        </p>
+      </div>
+
     </div>
   );
 }

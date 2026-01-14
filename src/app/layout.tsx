@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import ConsultationModal from "@/components/ui/ConsultationModal";
+import Navbar from "@/components/navbar";
+
 
 export const metadata: Metadata = {
   title: "Ilio - Big Data for Big Success",
@@ -14,7 +17,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="antialiased">
+        <Navbar/>
         {children}
+        <ConsultationModal />
       </body>
     </html>
   );

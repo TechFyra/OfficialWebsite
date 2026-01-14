@@ -1,17 +1,87 @@
+import React from "react";
+
+
+// interface ServicesCardProps {
+//   title: string;
+//   description: string;
+//   image: string;
+// }
+
+
+// const ServicesCard = ({ title, description, image }: ServicesCardProps) => {
+//   return (
+//     <div
+//       className="
+//         relative w-full max-w-[520px] h-[320px]
+//         rounded-3xl overflow-hidden
+//         transition-all duration-300
+//         hover:-translate-y-2
+//         hover:shadow-[0_35px_80px_rgba(168,85,247,0.45)]
+//       "
+//       style={{
+//         backgroundImage: `url(${image})`,
+//         backgroundSize: "cover",
+//         backgroundPosition: "center",
+//         backgroundRepeat: "no-repeat",
+//       }}
+//     >
+//       {/* Overlay */}
+//       <div className="absolute inset-0 bg-black/40" />
+
+
+//       {/* Content */}
+//       <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-8">
+//         <h3 className="text-white text-2xl font-bold mb-4">
+//           {title}
+//         </h3>
+
+
+//         <p className="text-white/90 text-sm leading-relaxed max-w-md">
+//           {description}
+//         </p>
+//       </div>
+//     </div>
+//   );
+// };
+
+
+// export default ServicesCard;
 interface ServicesCardProps {
-  icon: string;
   title: string;
   description: string;
+  image: string;
 }
 
-export default function ServicesCard({ icon, title, description }: ServicesCardProps) {
+
+export default function ServicesCard({
+  title,
+  description,
+  image,
+}: ServicesCardProps) {
   return (
-    <div className="flex flex-col items-center p-12 bg-white border-2 border-gray-200 rounded-3xl text-center max-w-sm mx-auto hover:scale-105 hover:border-indigo-300 hover:shadow-2xl transition-all">
-      <div className="w-24 h-24 bg-gradient-to-r from-[--color-indigo-600] to-[--color-purple-600] rounded-2xl flex items-center justify-center mb-8 shadow-lg">
-        <span className="text-4xl">{icon}</span>
+    <div
+      className="relative w-full max-w-[520px] h-[320px] rounded-3xl overflow-hidden
+                 transition-all duration-300 hover:-translate-y-2
+                 hover:shadow-[0_35px_80px_rgba(168,85,247,0.45)]"
+      style={{
+        backgroundImage: `url("${image}")`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-black/40" />
+
+
+      {/* Text */}
+      <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-8">
+        <h3 className="text-white text-2xl font-bold mb-4">
+          {title}
+        </h3>
+        <p className="text-white/90 text-sm leading-relaxed">
+          {description}
+        </p>
       </div>
-      <h3 className="text-2xl font-bold text-gray-900 mb-6">{title}</h3>
-      <p className="text-gray-600 leading-relaxed">{description}</p>
     </div>
   );
 }

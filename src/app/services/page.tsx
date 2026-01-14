@@ -2,71 +2,79 @@
 import Navbar from "@/components/navbar";
 import ServiceDetailCard from "@/components/ui/service-detail-card";
 import { useRouter } from "next/navigation";
+import ServicesCard from "@/components/ui/services-card";
+import PageCTA from "@/components/ui/page-cta";
+import Footer from "@/components/footer";
 
-export default function Services() {
-  const router = useRouter();
+export default function ServicesPage() {
+  const services = [
+    {
+      title: "Custom Website Development",
+      description:
+        "High-performance, scalable websites designed with modern frameworks and optimized user experience...",
+      image: "/images/custom-web.png",
+    },
+    {
+      title: "Web Automation",
+      description:
+        "Streamline workflows and automate repetitive tasks to boost productivity and operational efficiency...",
+      image: "/images/web-automation.png",
+    },
+    {
+      title: "Database Design & Management",
+      description:
+        "Secure and scalable database solutions engineered for reliability, speed, and long-term growth...",
+      image: "/images/custom-web.png",
+    },
+    {
+      title: "Data Analytics & Insights",
+      description:
+        "Transform raw data into actionable insights that support smarter, data-driven decisions...",
+      image: "/images/data-analytics.png",
+    },
+    {
+      title: "AI-Powered Integrations",
+      description:
+        "Intelligent AI integrations that enhance automation, prediction accuracy, and personalization...",
+      image: "/images/ai-integrations.png",
+    },
+    {
+      title: "Security & Performance Optimization",
+      description:
+        "Advanced security measures and performance tuning to keep your systems fast and protected...",
+      image: "/images/security-performance.png",
+    },
+  ];
+
 
   return (
-    <>
-      <Navbar />
-      
-      <section className="min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 pt-32 pb-24 flex items-center">
-        <div className="max-w-6xl mx-auto px-8 text-center">
-          <h1 className="text-7xl md:text-8xl font-black bg-gradient-to-r from-gray-900 via-indigo-600 to-purple-600 bg-clip-text text-transparent mb-16 leading-tight">
-            Our Services
-          </h1>
-          <p className="text-3xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            Comprehensive data solutions tailored to your business needs
-          </p>
-        </div>
-      </section>
-      
-      <section className="py-40 px-8 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-16 mb-24">
-            <ServiceDetailCard 
-              icon={<span className="text-4xl">💬</span>}
-              title="Big Data Consulting" 
-              description="Sometimes you need to look far to see close. Our experts help you make sense of big data."
-              color="indigo"
-            />
-            <ServiceDetailCard 
-              icon={<span className="text-4xl">⚙️</span>}
-              title="Data Infrastructure & Engineering" 
-              description="It's not enough to have data, you also need to have the right tools to manage it day-to-day."
-              color="pink"
-            />
-          </div>
-          
-          <div className="grid md:grid-cols-2 gap-16">
-            <ServiceDetailCard 
-              icon={<span className="text-4xl">📊</span>}
-              title="Data Analytics" 
-              description="From in-house training to tailored service packages, we offer a wide range of data analysis services."
-              color="blue"
-            />
-            <ServiceDetailCard 
-              icon={<span className="text-4xl">📈</span>}
-              title="Data Visualization" 
-              description="In order to make informed decisions, you need to understand your data. We can visualize yours for you."
-              color="indigo"
-            />
-          </div>
-        </div>
-      </section>
-      
-      <section className="py-40 px-8 bg-gradient-to-br from-indigo-50 to-purple-50 text-center">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-6xl font-black text-gray-900 mb-12">Why Choose Us?</h2>
-          <p className="text-2xl text-gray-600 mb-16">Learn what makes us different</p>
-          <button 
-            onClick={() => router.push('/why-us')}
-            className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-20 py-8 rounded-full font-bold text-3xl hover:scale-105 hover:shadow-2xl transition-all shadow-xl"
-          >
-            Discover Why Us
-          </button>
-        </div>
-      </section>
-    </>
+    <section className="py-28 px-6 bg-[#faf7ff]">
+      <div className="text-center mb-24">
+      <h1 className="text-8xl md:text-9xl font-extrabold mb-8">
+          Our{" "}
+          <span className="bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent">
+            Services
+          </span>
+        </h1>
+        <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+          Powerful digital solutions crafted to scale, secure, and elevate your business.
+        </p>
+      </div>
+
+
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-14 place-items-center">
+        {services.map((service, index) => (
+          <ServicesCard key={index} {...service} />
+        ))}
+      </div>
+      <PageCTA
+  title="Why TechFyra?"
+  subtitle="See what makes us different from other tech partners."
+  buttonText="Why Choose Us"
+  href="/why-us"
+/>
+<Footer/>
+    </section>
+    
   );
 }
