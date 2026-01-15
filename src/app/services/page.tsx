@@ -49,7 +49,7 @@ export default function ServicesPage() {
 
   return (
     <>
-      <section className="pt-28 pb-16 px-6 bg-[#faf7ff]">
+      <section className="pt-28 px-6 bg-[#faf7ff]">
         <div className="text-center mb-24">
           <h1 className="text-8xl md:text-9xl font-extrabold mb-8">
             Our{" "}
