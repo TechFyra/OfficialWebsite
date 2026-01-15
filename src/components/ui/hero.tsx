@@ -54,17 +54,35 @@ export default function Hero() {
           ref={titleRef}
           className="text-5xl md:text-6xl lg:text-[6.5rem] font-black tracking-tighter leading-[1.1] filter drop-shadow-2xl"
         >
-          <span className="bg-gradient-to-r from-pink-500 via-purple-600 to-indigo-700 bg-clip-text text-transparent block mb-1
-            [text-shadow:_3px_6px_12px_rgba(168,85,247,0.3),_0px_10px_20px_rgba(0,0,0,0.1)]
-            transition-all duration-500 hover:tracking-normal">
-            Seamless Connections,
-          </span>
-          
-          <span className="bg-gradient-to-r from-pink-500 via-purple-600 to-indigo-700 bg-clip-text text-transparent block
-            [text-shadow:_3px_6px_12px_rgba(168,85,247,0.3),_0px_10px_20px_rgba(0,0,0,0.1)]
-            transition-all duration-500 hover:tracking-normal">
-            For A Smarter Tomorrow
-          </span>
+          <span
+  className="
+    inline-block
+    bg-gradient-to-r from-pink-500 via-purple-600 to-indigo-700
+    bg-clip-text text-transparent
+    mb-1
+    [text-shadow:_3px_6px_12px_rgba(168,85,247,0.3),_0px_10px_20px_rgba(0,0,0,0.1)]
+    transition-transform duration-500 ease-out
+    hover:scale-[1.04] hover:-translate-y-1
+    whitespace-nowrap
+  "
+>
+  Seamless Connections,
+</span>
+
+<span
+  className="
+    inline-block
+    bg-gradient-to-r from-pink-500 via-purple-600 to-indigo-700
+    bg-clip-text text-transparent
+    [text-shadow:_3px_6px_12px_rgba(168,85,247,0.3),_0px_10px_20px_rgba(0,0,0,0.1)]
+    transition-transform duration-500 ease-out
+    hover:scale-[1.04] hover:-translate-y-1
+    whitespace-nowrap
+  "
+>
+  For A Smarter Tomorrow
+</span>
+
         </h1>
 
         <p
