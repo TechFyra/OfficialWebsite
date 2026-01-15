@@ -1,12 +1,20 @@
 "use client";
-import Navbar from "@/components/navbar";
-import ServiceDetailCard from "@/components/ui/service-detail-card";
-import { useRouter } from "next/navigation";
+
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+
 import ServicesCard from "@/components/ui/services-card";
 import PageCTA from "@/components/ui/page-cta";
 import Footer from "@/components/footer";
 
+gsap.registerPlugin(ScrollTrigger);
+
 export default function ServicesPage() {
+  const headingRef = useRef<HTMLDivElement | null>(null);
+  const cardsRef = useRef<HTMLDivElement | null>(null);
+  const ctaRef = useRef<HTMLDivElement | null>(null);
+
   const services = [
     {
       title: "Custom Website Development",
@@ -46,11 +54,59 @@ export default function ServicesPage() {
     },
   ];
 
+  useEffect(() => {
+    if (!headingRef.current || !cardsRef.current || !ctaRef.current) return;
+
+    // 🔒 INITIAL STATE (HIDDEN)
+    gsap.set(headingRef.current, { opacity: 0, y: 60 });
+    gsap.set(cardsRef.current.children, { opacity: 0, y: 40 });
+    gsap.set(ctaRef.current, { opacity: 0, scale: 0.96 });
+
+    // PAGE HEADING
+    gsap.to(headingRef.current, {
+      opacity: 1,
+      y: 0,
+      duration: 0.9,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: headingRef.current,
+        start: "top 80%",
+        toggleActions: "play none none none",
+      },
+    });
+
+    // SERVICES CARDS (STAGGER ON SCROLL)
+    ScrollTrigger.batch(cardsRef.current.children, {
+      start: "top 85%",
+      onEnter: (elements) =>
+        gsap.to(elements, {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          stagger: 0.15,
+          ease: "power3.out",
+        }),
+    });
+
+    // CTA
+    gsap.to(ctaRef.current, {
+      opacity: 1,
+      scale: 1,
+      duration: 0.7,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: ctaRef.current,
+        start: "top 85%",
+        toggleActions: "play none none none",
+      },
+    });
+  }, []);
 
   return (
     <>
       <section className="pt-28 px-6 bg-[#faf7ff]">
-        <div className="text-center mb-24">
+        {/* HEADING */}
+        <div ref={headingRef} className="text-center mb-24">
           <h1 className="text-8xl md:text-9xl font-extrabold mb-8">
             Our{" "}
             <span className="bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent">
@@ -62,21 +118,28 @@ export default function ServicesPage() {
           </p>
         </div>
 
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-14 place-items-center">
+        {/* SERVICES GRID */}
+        <div
+          ref={cardsRef}
+          className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-14 place-items-center"
+        >
           {services.map((service, index) => (
             <ServicesCard key={index} {...service} />
           ))}
         </div>
-        
-        <PageCTA
-          title="Why TechFyra?"
-          subtitle="See what makes us different from other tech partners."
-          buttonText="Why Choose Us"
-          href="/why-us"
-        />
+
+        {/* CTA */}
+        <div ref={ctaRef} className="mt-32">
+          <PageCTA
+            title="Why TechFyra?"
+            subtitle="See what makes us different from other tech partners."
+            buttonText="Why Choose Us"
+            href="/why-us"
+          />
+        </div>
       </section>
-      
-      <Footer/>
+
+      <Footer />
     </>
   );
 }
