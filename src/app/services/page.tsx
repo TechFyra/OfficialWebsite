@@ -48,33 +48,35 @@ export default function ServicesPage() {
 
 
   return (
-    <section className="py-28 px-6 bg-[#faf7ff]">
-      <div className="text-center mb-24">
-      <h1 className="text-8xl md:text-9xl font-extrabold mb-8">
-          Our{" "}
-          <span className="bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent">
-            Services
-          </span>
-        </h1>
-        <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-          Powerful digital solutions crafted to scale, secure, and elevate your business.
-        </p>
-      </div>
+    <>
+      <section className="pt-28 pb-16 px-6 bg-[#faf7ff]">
+        <div className="text-center mb-24">
+          <h1 className="text-8xl md:text-9xl font-extrabold mb-8">
+            Our{" "}
+            <span className="bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent">
+              Services
+            </span>
+          </h1>
+          <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+            Powerful digital solutions crafted to scale, secure, and elevate your business.
+          </p>
+        </div>
 
-
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-14 place-items-center">
-        {services.map((service, index) => (
-          <ServicesCard key={index} {...service} />
-        ))}
-      </div>
-      <PageCTA
-  title="Why TechFyra?"
-  subtitle="See what makes us different from other tech partners."
-  buttonText="Why Choose Us"
-  href="/why-us"
-/>
-<Footer/>
-    </section>
-    
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-14 place-items-center">
+          {services.map((service, index) => (
+            <ServicesCard key={index} {...service} />
+          ))}
+        </div>
+        
+        <PageCTA
+          title="Why TechFyra?"
+          subtitle="See what makes us different from other tech partners."
+          buttonText="Why Choose Us"
+          href="/why-us"
+        />
+      </section>
+      
+      <Footer/>
+    </>
   );
 }
