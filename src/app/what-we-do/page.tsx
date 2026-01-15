@@ -1,107 +1,82 @@
+"use client";
 import Navbar from "@/components/navbar";
-import ExpertiseCard from "@/components/ui/expertise-card";
-import Image from "next/image";
+import ServiceDetailCard from "@/components/ui/service-detail-card";
+import { useRouter } from "next/navigation";
+import ServicesCard from "@/components/ui/services-card";
 import PageCTA from "@/components/ui/page-cta";
 import Footer from "@/components/footer";
 
-export default function WhatWeDo() {
+export default function ServicesPage() {
+  const services = [
+    {
+      title: "Custom Website Development",
+      description:
+        "High-performance, scalable websites designed with modern frameworks and optimized user experience...",
+      image: "/images/custom-web.png",
+    },
+    {
+      title: "Web Automation",
+      description:
+        "Streamline workflows and automate repetitive tasks to boost productivity and operational efficiency...",
+      image: "/images/web-automation.png",
+    },
+    {
+      title: "Database Design & Management",
+      description:
+        "Secure and scalable database solutions engineered for reliability, speed, and long-term growth...",
+      image: "/images/database-design.png",
+    },
+    {
+      title: "Data Analytics & Insights",
+      description:
+        "Transform raw data into actionable insights that support smarter, data-driven decisions...",
+      image: "/images/data-analytics.png",
+    },
+    {
+      title: "AI-Powered Integrations",
+      description:
+        "Intelligent AI integrations that enhance automation, prediction accuracy, and personalization...",
+      image: "/images/ai-integrations.png",
+    },
+    {
+      title: "Security & Performance Optimization",
+      description:
+        "Advanced security measures and performance tuning to keep your systems fast and protected...",
+      image: "/images/security-performance.png",
+    },
+  ];
+
+
   return (
     <>
-      <Navbar />
-
-      {/* HERO SECTION */}
-      <section className="min-h-screen bg-gradient-to-br from-pink-50 via-purple-50 to-indigo-50 pt-32 pb-28 flex items-center">
-        <div className="max-w-7xl mx-auto px-8 grid md:grid-cols-2 gap-16 items-center">
-
-          {/* LEFT TEXT */}
-          <div>
-            <h1
-              className="
-                text-7xl md:text-8xl font-black leading-tight mb-10
-                bg-gradient-to-r from-pink-500 via-purple-600 to-indigo-600
-                bg-clip-text text-transparent
-              "
-            >
-              We grow.<br />
-              You grow<br />
-              with us.
-            </h1>
-
-            <p className="text-2xl text-gray-600 max-w-xl leading-relaxed">
-              At TechFyra, growth isn’t a milestone — it’s a journey.
-              Our expertise grows alongside your business. As your needs evolve,
-              we scale systems, automate workflows, and unlock insights that help
-              you move faster, smarter, and stronger.
-            </p>
-          </div>
-
-          {/* RIGHT GRAPHIC */}
-          <div className="flex justify-center md:justify-end">
-            <Image
-              src="/images/growth-graphic.png"
-              alt="Growth graphic"
-              width={560}
-              height={420}
-              priority
-              className="
-                select-none
-                drop-shadow-2xl
-                mix-blend-multiply
-                brightness-110
-                contrast-110
-              "
-            />
-          </div>
-
+      <section className="pt-28 pb-16 px-6 bg-[#faf7ff]">
+        <div className="text-center mb-24">
+          <h1 className="text-8xl md:text-9xl font-extrabold mb-8">
+            Our{" "}
+            <span className="bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent">
+              Services
+            </span>
+          </h1>
+          <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+            Powerful digital solutions crafted to scale, secure, and elevate your business.
+          </p>
         </div>
-      </section>
-      <section className="pt-32 pb-20 text-center">
-  <h1 className="text-6xl md:text-7xl font-extrabold mb-6">
-    Our <span className="bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent">
-      Expertise
-    </span>
-  </h1>
-  <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-    We don’t just deliver projects — we build scalable systems and long-term partnerships.
-  </p>
-</section>
 
-
-      {/* EXPERTISE CARDS */}
-      <section className="py-40 bg-white">
-        <div className="max-w-7xl mx-auto px-8 grid md:grid-cols-2 gap-24 ">
-
-          <ExpertiseCard
-            title="Scalable Thinking"
-            description="We design systems that grow with your business — from early foundations to enterprise-scale performance."
-            image="/images/scalable-thinking.png"
-            className="min-h-[420px]"
-          />
-
-          <ExpertiseCard
-            title="Long-Term Growth Partnership"
-            description="We work as an extension of your team, continuously improving automation, data, and intelligence as you grow."
-            image="/images/long-term-partnership.png"
-            className="min-h-[420px]"
-          />
-          <section className="bg-gradient-to-b from-white to-pink-50">
-
-          
-</section>
-
-
-
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-14 place-items-center">
+          {services.map((service, index) => (
+            <ServicesCard key={index} {...service} />
+          ))}
         </div>
-      
-      </section>
+        
         <PageCTA
-  title="Want to See What We Build?"
-  subtitle="Explore the services we deliver using this expertise."
-  buttonText="View Our Services"
-  href="/services"
-/>
-<Footer/>
+          title="Why TechFyra?"
+          subtitle="See what makes us different from other tech partners."
+          buttonText="Why Choose Us"
+          href="/why-us"
+        />
+      </section>
+      
+      <Footer/>
     </>
-    
   );
 }

@@ -24,7 +24,7 @@ export default function ServicesPage() {
       title: "Database Design & Management",
       description:
         "Secure and scalable database solutions engineered for reliability, speed, and long-term growth...",
-      image: "/images/custom-web.png",
+      image: "/images/database-design.png",
     },
     {
       title: "Data Analytics & Insights",

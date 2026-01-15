@@ -1,17 +1,60 @@
+import React from "react";
+
 interface ValueCardProps {
-  icon: React.ReactNode;
   title: string;
   description: string;
+  image: string;
 }
 
-export default function ValueCard({ icon, title, description }: ValueCardProps) {
+const ValueCard: React.FC<ValueCardProps> = ({
+  title,
+  description,
+  image,
+}) => {
   return (
-    <div className="bg-white border-2 border-gray-200 rounded-3xl p-10 hover:border-indigo-300 transition-all hover:scale-105 duration-300 shadow-lg hover:shadow-2xl">
-      <div className="w-20 h-20 bg-gradient-to-r from-[--color-indigo-600] to-[--color-purple-600] rounded-2xl flex items-center justify-center mb-6 shadow-lg">
-        {icon}
+    <div className="relative group">
+      {/* Background shadow / halo */}
+      <div
+        className="
+          absolute -inset-4 rounded-[2rem]
+          bg-purple-500/0
+          blur-2xl
+          transition-all duration-300
+          group-hover:bg-purple-500/20
+        "
+      />
+
+      {/* Actual card */}
+      <div
+        className="
+          relative h-[360px] rounded-3xl overflow-hidden
+          transition-all duration-300 ease-out
+          group-hover:-translate-y-2
+          group-hover:shadow-2xl
+          cursor-pointer
+        "
+        style={{
+          backgroundImage: `url(${image})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black/55 transition-all duration-300 group-hover:bg-black/45" />
+
+        {/* Centered content */}
+        <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 text-white">
+          <h3 className="text-xl font-bold mb-4">
+            {title}
+          </h3>
+
+          <p className="text-sm leading-relaxed text-white/90">
+            {description}
+          </p>
+        </div>
       </div>
-      <h3 className="text-2xl font-bold text-gray-900 mb-4">{title}</h3>
-      <p className="text-gray-600 leading-relaxed">{description}</p>
     </div>
   );
-}
+};
+
+export default ValueCard;
