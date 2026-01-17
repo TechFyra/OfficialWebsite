@@ -5,7 +5,7 @@ import Navbar from "@/components/navbar";
 
 
 export const metadata: Metadata = {
-  title: "Ilio - Big Data for Big Success",
+  title: "TechFyra - Seamless Connection For Better Tomorrow",
   description: "Data analytics and visualization services for your business growth",
 };
 
