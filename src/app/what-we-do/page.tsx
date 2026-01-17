@@ -1,12 +1,12 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import Image from "next/image";
 
 import Navbar from "@/components/navbar";
 import ExpertiseCard from "@/components/ui/expertise-card";
-import Image from "next/image";
 import PageCTA from "@/components/ui/page-cta";
 import Footer from "@/components/footer";
 
@@ -52,86 +52,104 @@ export default function WhatWeDo() {
     },
   ];
 
-  useEffect(() => {
-    if (
-      !heroRef.current ||
-      !headerRef.current ||
-      !cardsRef.current ||
-      !whyRef.current ||
-      !ctaRef.current
-    )
-      return;
+  useLayoutEffect(() => {
+    ScrollTrigger.refresh();
 
-    /* ---------------- INITIAL STATES ---------------- */
-    gsap.set(heroRef.current.children, { opacity: 0, y: 60 });
-    gsap.set(headerRef.current, { opacity: 0, y: 60 });
-    gsap.set(cardsRef.current.children, { opacity: 0, y: 60 });
-    gsap.set(whyRef.current.children, { opacity: 0, y: 40 });
-    gsap.set(ctaRef.current, { opacity: 0, scale: 0.95 });
+    const ctx = gsap.context(() => {
 
-    /* ---------------- HERO ---------------- */
-    gsap.to(heroRef.current.children, {
-      opacity: 1,
-      y: 0,
-      duration: 1.3,
-      stagger: 0.2,
-      ease: "power4.out",
-      scrollTrigger: {
-        trigger: heroRef.current,
-        start: "top 80%",
-        toggleActions: "play none none none",
-      },
-    });
+      /* =============================
+         HERO SECTION
+      ============================== */
+      if (heroRef.current) {
+        gsap.from(heroRef.current.children, {
+          opacity: 0,
+          y: 60,
+          duration: 1.3,
+          stagger: 0.2,
+          ease: "power4.out",
+          scrollTrigger: {
+            trigger: heroRef.current,
+            start: "top 80%",
+          },
+        });
+      }
 
-    /* ---------------- HEADER ---------------- */
-    gsap.to(headerRef.current, {
-      opacity: 1,
-      y: 0,
-      duration: 1.2,
-      ease: "power4.out",
-      scrollTrigger: {
-        trigger: headerRef.current,
-        start: "top 85%",
-      },
-    });
+      /* =============================
+         EXPERTISE HEADER
+      ============================== */
+      if (headerRef.current) {
+        gsap.from(headerRef.current, {
+          opacity: 0,
+          y: 60,
+          duration: 1.2,
+          ease: "power4.out",
+          scrollTrigger: {
+            trigger: headerRef.current,
+            start: "top 85%",
+          },
+        });
+      }
 
-    /* ---------------- EXPERTISE CARDS ---------------- */
-    ScrollTrigger.batch(cardsRef.current.children, {
-      start: "top 90%",
-      onEnter: (elements) =>
-        gsap.to(elements, {
-          opacity: 1,
-          y: 0,
-          duration: 1.1,
-          stagger: 0.25,
+      /* =============================
+         EXPERTISE CARDS
+      ============================== */
+      if (cardsRef.current) {
+        ScrollTrigger.batch(cardsRef.current.children, {
+          start: "top 90%",
+          onEnter: (elements) =>
+            gsap.fromTo(
+              elements,
+              { opacity: 0, y: 60 },
+              {
+                opacity: 1,
+                y: 0,
+                duration: 1.1,
+                stagger: 0.25,
+                ease: "power3.out",
+              }
+            ),
+        });
+      }
+
+      /* =============================
+         WHY TECHFYRA
+      ============================== */
+      if (whyRef.current) {
+        ScrollTrigger.batch(whyRef.current.children, {
+          start: "top 90%",
+          onEnter: (elements) =>
+            gsap.fromTo(
+              elements,
+              { opacity: 0, y: 40 },
+              {
+                opacity: 1,
+                y: 0,
+                duration: 0.9,
+                stagger: 0.15,
+                ease: "power3.out",
+              }
+            ),
+        });
+      }
+
+      /* =============================
+         CTA
+      ============================== */
+      if (ctaRef.current) {
+        gsap.from(ctaRef.current, {
+          opacity: 0,
+          scale: 0.95,
+          duration: 1,
           ease: "power3.out",
-        }),
+          scrollTrigger: {
+            trigger: ctaRef.current,
+            start: "top 90%",
+          },
+        });
+      }
     });
 
-    /* ---------------- WHY TECHFYRA ---------------- */
-    ScrollTrigger.batch(whyRef.current.children, {
-      start: "top 90%",
-      onEnter: (elements) =>
-        gsap.to(elements, {
-          opacity: 1,
-          y: 0,
-          duration: 0.9,
-          stagger: 0.15,
-          ease: "power3.out",
-        }),
-    });
-
-    /* ---------------- CTA ---------------- */
-    gsap.to(ctaRef.current, {
-      opacity: 1,
-      scale: 1,
-      duration: 1.0,
-      ease: "power3.out",
-      scrollTrigger: {
-        trigger: ctaRef.current,
-        start: "top 90%",
-      },
-    });
+    return () => ctx.revert();
   }, []);
 
   return (
@@ -145,12 +163,12 @@ export default function WhatWeDo() {
       >
         <div className="max-w-7xl mx-auto px-8 grid md:grid-cols-2 gap-16 items-center">
           <div>
-            <h1 className="text-7xl md:text-8xl font-black leading-tight mb-10 bg-gradient-to-r from-pink-500 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
+            <h1 className="text-6xl sm:text-7xl md:text-8xl font-black leading-tight mb-10 bg-gradient-to-r from-pink-500 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
               We grow.<br /> You grow<br /> with us.
             </h1>
-            <p className="text-2xl text-gray-600 max-w-xl leading-relaxed">
-              At TechFyra, expertise isn’t just about technology—it’s about solving
-              real business problems with precision and intelligence.
+            <p className="text-xl md:text-2xl text-gray-600 max-w-xl leading-relaxed">
+              At TechFyra, expertise isn’t just about technology — it’s about
+              solving real business problems with precision and intelligence.
             </p>
           </div>
 
@@ -169,13 +187,13 @@ export default function WhatWeDo() {
 
       {/* HEADER */}
       <section ref={headerRef} className="pt-32 pb-10 text-center">
-        <h2 className="text-6xl md:text-7xl font-extrabold mb-6">
+        <h2 className="text-5xl sm:text-6xl md:text-7xl font-extrabold mb-6">
           Our{" "}
           <span className="bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent">
             Expertise
           </span>
         </h2>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+        <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
           We combine deep technical knowledge and modern engineering practices to
           deliver measurable outcomes.
         </p>

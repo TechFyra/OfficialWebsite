@@ -3,10 +3,10 @@ import "./globals.css";
 import ConsultationModal from "@/components/ui/ConsultationModal";
 import Navbar from "@/components/navbar";
 
-
 export const metadata: Metadata = {
-  title: "TechFyra - Big Data for Big Success",
-  description: "Data analytics and visualization services for your business growth",
+  title: "TechFyra - Seamless Connection For Better Tomorrow",
+  description:
+    "TechFyra delivers automation, web development, data analytics, data visualization, and ML solutions for scalable business growth.",
 };
 
 export default function RootLayout({
@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="antialiased">
-        <Navbar/>
+        <Navbar />
         {children}
         <ConsultationModal />
       </body>
